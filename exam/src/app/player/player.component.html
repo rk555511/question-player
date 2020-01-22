@@ -1,0 +1,27 @@
+<div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-4 col-sm-offset-2">
+	<div class="alert alert-success" *ngIf="correctansShow">
+	  <strong>Congratulations!</strong> your answer is correct.
+	</div>
+
+	<div class="alert alert-danger" *ngIf="wrongansShow">
+	  <strong>Oops!</strong> Your answer is not correct. The correct answer is <br/> {{correct_answer}}
+	</div>
+
+	<div class="alert alert-info" *ngIf="questionInfoShow">
+	  <strong>Info!</strong> Now we are moving to next question.
+	</div>
+
+	<form [formGroup]="form"  *ngIf="questionShow">
+	<div class="panel panel-default">
+	  <div class="panel-heading">{{ questionText }}</div>
+	  <div class="panel-body">
+	  	
+	  	<div class="radio" *ngFor="let questionOption of questionOptions;">
+		   <label><input type="radio" name="answer" formControlName="answer"  value="{{questionOption.id}}" (change)="checkAnswer()">{{questionOption.question_option}}</label>
+		</div>
+
+
+	  </div>
+	</div>
+	</form>
+</div>

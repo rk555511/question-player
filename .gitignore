@@ -1,0 +1,46 @@
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# compiled output
+/exam/dist
+/exam/tmp
+/exam/out-tsc
+# Only exists if Bazel was run
+/exam/bazel-out
+
+# dependencies
+/exam/node_modules
+
+# profiling files
+chrome-profiler-events*.json
+speed-measure-plugin*.json
+
+# IDEs and editors
+/exam/.idea
+/exam/.project
+/exam/.classpath
+/exam/.c9/
+/exam/*.launch
+/exam/.settings/
+/exam/*.sublime-workspace
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
+
+# misc
+/exam/.sass-cache
+/exam/connect.lock
+/exam/coverage
+/exam/libpeerconnection.log
+/exam/npm-debug.log
+/exam/yarn-error.log
+/exam/testem.log
+/typings
+
+# System Files
+/exam/.DS_Store
+/exam/Thumbs.db
