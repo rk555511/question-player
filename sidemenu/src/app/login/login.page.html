@@ -1,0 +1,26 @@
+<ion-grid>
+	<ion-row class="ion-justify-content-center">
+		<ion-col class="ion-align-self-center" size-md="6" size-lg="5" size-xs="12">
+			<form  #form="ngForm" (ngSubmit)="login(form)">
+			<div class="ion-text-center">
+				<h4>Login</h4>
+			</div>
+			<div class="ion-padding">
+				<ion-item>
+					 <ion-input  name="email" type="email" placeholder="Username Or Email" ngModel required></ion-input>
+				</ion-item>
+
+				<ion-item>
+					 <ion-input  name="password" type="password" placeholder="Password" ngModel required></ion-input>
+				</ion-item>
+			</div>
+
+			<div class="ion-padding">
+				<ion-button  size="medium" type="submit" [disabled]="form.invalid">Login</ion-button>
+				<ion-button size="medium" routerLink="/register" ion-float-right>Register</ion-button>
+			</div>
+		</form>
+
+		</ion-col>
+	</ion-row>
+</ion-grid>
