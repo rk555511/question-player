@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { GuardGuard } from './api/guard.guard';
+import { GuestGuardGuard } from './api/guest-guard.guard';
+
 
 
 const routes: Routes = [
@@ -20,10 +22,12 @@ const routes: Routes = [
   },
   {
     path: 'login',
+    canActivate:[GuestGuardGuard],
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
   {
     path: 'register',
+    canActivate:[GuestGuardGuard],
     loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
   }
 ];

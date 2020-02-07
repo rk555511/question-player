@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ServiceService } from '../api/service.service';
+import { Router } from '@angular/router';
+import { Platform, MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -7,10 +9,11 @@ import { ServiceService } from '../api/service.service';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-
-  constructor(private api:ServiceService) { }
+  isLogin = false;
+  constructor(private api:ServiceService, private router:Router, public menu: MenuController) { }
 
   ngOnInit() {
+    this.menu.enable(false);
   }
 
 
@@ -22,6 +25,17 @@ export class LoginPage implements OnInit {
         password:form.form.value.password
       };
       this.api.login(userCredentails);
+      this.api.checkLogin();
+      this.api.checkstatus.subscribe(currentStatus=>{
+        console.log(currentStatus);
+        console.log("=== Called ====");
+         this.isLogin = currentStatus;
+         if(currentStatus){
+           this.menu.enable(true);
+           this.router.navigate(['/home']);  
+         }
+      })
+       //
 
   }
 

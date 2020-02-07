@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ServiceService } from '../api/service.service';
+import { Platform, MenuController } from '@ionic/angular';
 
 
 @Component({
@@ -9,10 +10,10 @@ import { ServiceService } from '../api/service.service';
 })
 export class RegisterPage implements OnInit {
 
-  constructor(private api:ServiceService) { }
+  constructor(private api:ServiceService, public menu: MenuController) { }
 
   ngOnInit() {
-  	//console.log(environment);
+  	this.menu.enable(false);
   }
 
   registerUser(user){
@@ -20,7 +21,7 @@ export class RegisterPage implements OnInit {
   			name:user.form.value.name, 
   			email:user.form.value.email, 
   			password:user.form.value.password};
-  		this.api.register(user);
+  		this.api.register(newUser);
 
 
   }
